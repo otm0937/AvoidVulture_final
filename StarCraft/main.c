@@ -6,7 +6,7 @@
 
 
 
-DWORD __stdcall Soundmain(void*p);
+DWORD __stdcall Soundmain(void* p);
 
 
 
@@ -98,7 +98,7 @@ void processInput()	// input 제어
 	}
 }
 
-DWORD __stdcall mouseInput(void *param)	//마우스 입력
+DWORD __stdcall mouseInput(void* param)	//마우스 입력
 {
 	HWND hWnd = *(HWND*)param;
 	POINT p;
@@ -120,7 +120,7 @@ int createUnit(int name, int x, int y) {	//유닛 생성
 		if (Units[i].isUsed == 0) {
 			switch (name) {
 			case Medic: Units[i] = MedicUnit;
-			break;
+				break;
 			}
 			Units[i].isUsed = 1;
 			Units[i].x = x;
@@ -167,8 +167,8 @@ void initxy() {	//생성안된유닛 xy값 초기화
 
 int collisionCheck(int i) {	//충돌 체크
 
-	for (int y = -Units[i].sizeY / 2-1; y <= Units[i].sizeY / 2; y++) {
-		for (int x = -Units[i].sizeX / 2-1; x <= Units[i].sizeX / 2; x++) {
+	for (int y = -Units[i].sizeY / 2 - 1; y <= Units[i].sizeY / 2; y++) {
+		for (int x = -Units[i].sizeX / 2 - 1; x <= Units[i].sizeX / 2; x++) {
 			if (Units[i].x + x <= 0 || Units[i].y + y <= 0 || Units[i].x + x >= 4096 || Units[i].y + y >= 4096)	continue;
 			if (x >= -Units[i].sizeX / 2 && x < Units[i].sizeX / 2 && y >= -Units[i].sizeY && y < Units[i].sizeY / 2)	continue;
 			if (fullMap[Units[i].x + x][Units[i].y + y] == 1 || fullMap[Units[i].x + x][Units[i].y + y] == 4) {
@@ -463,7 +463,7 @@ void difSel() {	//난이도 설정
 		printf("  │                                                          │ \n");
 		printf("  │                                                          │ \n");
 		printf("  └──────────────────────────────────────────────────────────┘ ");
-		
+
 		if (mouse_X >= 530 && mouse_X <= 1000 && mouse_Y >= 280 && mouse_Y <= 660)	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
 		else SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
 
@@ -471,49 +471,49 @@ void difSel() {	//난이도 설정
 		printf("  ┌──────────────────────────────────────────────────────────┐ ");
 		gotoxy(63, 18);
 		printf("  │                                                          │ ");
-		gotoxy(63, 19);															 
+		gotoxy(63, 19);
 		printf("  │                                                          │ ");
-		gotoxy(63, 20);															 
+		gotoxy(63, 20);
 		printf("  │                                                          │ ");
-		gotoxy(63, 21);															 
+		gotoxy(63, 21);
 		printf("  │                                                          │ ");
-		gotoxy(63, 22);															 
+		gotoxy(63, 22);
 		printf("  │                                                          │ ");
-		gotoxy(63, 23);															 
+		gotoxy(63, 23);
 		printf("  │                                                          │ ");
-		gotoxy(63, 24);															 
+		gotoxy(63, 24);
 		printf("  │                                                          │ ");
-		gotoxy(63, 25);															 
+		gotoxy(63, 25);
 		printf("  │                         2. 보통                          │ ");
-		gotoxy(63, 26);															 
+		gotoxy(63, 26);
 		printf("  │                                                          │ ");
-		gotoxy(63, 27);															 
+		gotoxy(63, 27);
 		printf("  │                                                          │ ");
-		gotoxy(63, 28);															 
+		gotoxy(63, 28);
 		printf("  │                     - 벌쳐 속도 보통                     │ ");
-		gotoxy(63, 29);															 
+		gotoxy(63, 29);
 		printf("  │                                                          │ ");
-		gotoxy(63, 30);															 
+		gotoxy(63, 30);
 		printf("  │                     - 스폰량 보통                        │ ");
-		gotoxy(63, 31);															 
+		gotoxy(63, 31);
 		printf("  │                                                          │ ");
-		gotoxy(63, 32);															 
+		gotoxy(63, 32);
 		printf("  │                     - 보스 난이도 보통                   │ ");
-		gotoxy(63, 33);															 
+		gotoxy(63, 33);
 		printf("  │                                                          │ ");
-		gotoxy(63, 34);															 
+		gotoxy(63, 34);
 		printf("  │                                                          │ ");
-		gotoxy(63, 35);															 
+		gotoxy(63, 35);
 		printf("  │                                                          │ ");
-		gotoxy(63, 36);															 
+		gotoxy(63, 36);
 		printf("  │                보통 난이도. 쉬움 난이도를                │ ");
-		gotoxy(63, 37);															 
+		gotoxy(63, 37);
 		printf("  │                쉽게 깼더라도 조금은 힘들 수              │ ");
-		gotoxy(63, 38);															 
+		gotoxy(63, 38);
 		printf("  │                있는 난이도.                              │ ");
-		gotoxy(63, 39);															 
+		gotoxy(63, 39);
 		printf("  │                                                          │ ");
-		gotoxy(63, 40);															 
+		gotoxy(63, 40);
 		printf("  │                                                          │ ");
 		gotoxy(63, 41);
 		printf("  └──────────────────────────────────────────────────────────┘ ");
@@ -586,15 +586,15 @@ void difSel() {	//난이도 설정
 		}
 
 
-		if (mouse_X >= 22 && mouse_X <= 494 && mouse_Y >= 280 && mouse_Y <= 660 && GetAsyncKeyState(VK_LBUTTON) < 0 && k==0) {
+		if (mouse_X >= 22 && mouse_X <= 494 && mouse_Y >= 280 && mouse_Y <= 660 && GetAsyncKeyState(VK_LBUTTON) < 0 && k == 0) {
 			difficulty = 1;
 			break;
 		}
-		else if (mouse_X >= 530 && mouse_X <= 1000 && mouse_Y >= 280 && mouse_Y <= 660 && GetAsyncKeyState(VK_LBUTTON) < 0 && k==0) {
+		else if (mouse_X >= 530 && mouse_X <= 1000 && mouse_Y >= 280 && mouse_Y <= 660 && GetAsyncKeyState(VK_LBUTTON) < 0 && k == 0) {
 			difficulty = 2;
 			break;
 		}
-		else if (mouse_X >= 1030 && mouse_X <= 1504 && mouse_Y >= 280 && mouse_Y <= 660 && GetAsyncKeyState(VK_LBUTTON) < 0 && k==0){
+		else if (mouse_X >= 1030 && mouse_X <= 1504 && mouse_Y >= 280 && mouse_Y <= 660 && GetAsyncKeyState(VK_LBUTTON) < 0 && k == 0) {
 			difficulty = 3;
 			break;
 		}
@@ -714,9 +714,9 @@ void difSel() {	//난이도 설정
 		printf("  │                                                          │ ");
 		gotoxy(63, 36);
 		printf("  │                                                          │ ");
-		gotoxy(63, 37);				                                 
+		gotoxy(63, 37);
 		printf("  │                                                          │ ");
-		gotoxy(63, 38);				                                 
+		gotoxy(63, 38);
 		printf("  │                                                          │ ");
 		gotoxy(63, 39);
 		printf("  │                                                          │ ");
@@ -768,11 +768,11 @@ void difSel() {	//난이도 설정
 		printf("  │                                                          │ ");
 		gotoxy(126, 36);
 		printf("  │                                                          │ ");
-		gotoxy(126, 37);			                           
+		gotoxy(126, 37);
 		printf("  │                                                          │ ");
-		gotoxy(126, 38);			                           
+		gotoxy(126, 38);
 		printf("  │                                                          │ ");
-		gotoxy(126, 39);			                           
+		gotoxy(126, 39);
 		printf("  │                                                          │ ");
 		gotoxy(126, 40);
 		printf("  │                                                          │ ");
@@ -808,19 +808,19 @@ void difSel() {	//난이도 설정
 			unitnum = 3;
 			break;
 		}
-		if (mouse_X >= 22 && mouse_X <= 494 && mouse_Y >= 280 && mouse_Y <= 660 && GetAsyncKeyState(VK_LBUTTON) < 0 && k==0) {
+		if (mouse_X >= 22 && mouse_X <= 494 && mouse_Y >= 280 && mouse_Y <= 660 && GetAsyncKeyState(VK_LBUTTON) < 0 && k == 0) {
 			unitnum = 1;
 			break;
 		}
-		else if (mouse_X >= 530 && mouse_X <= 1000 && mouse_Y >= 280 && mouse_Y <= 660 && GetAsyncKeyState(VK_LBUTTON) < 0 && k==0) {
+		else if (mouse_X >= 530 && mouse_X <= 1000 && mouse_Y >= 280 && mouse_Y <= 660 && GetAsyncKeyState(VK_LBUTTON) < 0 && k == 0) {
 			unitnum = 2;
 			break;
 		}
-		else if (mouse_X >= 1030 && mouse_X <= 1504 && mouse_Y >= 280 && mouse_Y <= 660 && GetAsyncKeyState(VK_LBUTTON) < 0 && k==0) {
+		else if (mouse_X >= 1030 && mouse_X <= 1504 && mouse_Y >= 280 && mouse_Y <= 660 && GetAsyncKeyState(VK_LBUTTON) < 0 && k == 0) {
 			unitnum = 3;
 			break;
 		}
-		else if (mouse_X >= 1146 && mouse_X <= 1390 && mouse_Y >= 740 && mouse_Y <= 840 && GetAsyncKeyState(VK_LBUTTON) < 0 && k==0) {
+		else if (mouse_X >= 1146 && mouse_X <= 1390 && mouse_Y >= 740 && mouse_Y <= 840 && GetAsyncKeyState(VK_LBUTTON) < 0 && k == 0) {
 			eraseScreen();
 			return difSel();
 		}
@@ -1082,7 +1082,7 @@ int Blast() {	//보스 3 공격 - 안전지대 제외 폭파 및 원 안에 있는지 체크
 					if (x >= -Units[i].sizeX / 2 && x < Units[i].sizeX / 2 && y >= -Units[i].sizeY && y < Units[i].sizeY / 2)	continue;
 					if (fullMap[Units[i].x + x][Units[i].y + y] != 5) {
 						for (int a = 0; a < 640; a++) {
-							for (int b=0; b<480; b++){
+							for (int b = 0; b < 480; b++) {
 								if (fullMap[a][b] == 5)	fullMap[a][b] = 0;
 							}
 						}
@@ -1092,7 +1092,7 @@ int Blast() {	//보스 3 공격 - 안전지대 제외 폭파 및 원 안에 있는지 체크
 			}
 		}
 	}
-		
+
 	return 0;
 }
 
@@ -1467,7 +1467,7 @@ void intro() {
 			}
 			break;
 		}
-		else if (GetAsyncKeyState(0x33) < 0 || (mouse_X >= 1030 && mouse_X <= 1504 && mouse_Y >= 280 && mouse_Y <= 660 && GetAsyncKeyState(VK_LBUTTON) < 0 && k==0)) {
+		else if (GetAsyncKeyState(0x33) < 0 || (mouse_X >= 1030 && mouse_X <= 1504 && mouse_Y >= 280 && mouse_Y <= 660 && GetAsyncKeyState(VK_LBUTTON) < 0 && k == 0)) {
 			gameover = 1;
 			break;
 		}
@@ -1496,15 +1496,15 @@ int main() {
 		createUnit(Medic, i * 100 + 150, i * 100 + 150);	//유닛 갯수만큼 생성
 	}
 	score = 0;
-	
+
 	while (1)
 	{
-		
+
 		gotoxy(0, 0);
 		long long oldTime = GetTickCount64();
 		score++;
 		// 스테이지 및 보스 패턴 설정	솔직히 여기 주석은 좀...ㅎㅎ
-		if (score >=0 && score < 2000) {	//stage 1
+		if (score >= 0 && score < 2000) {	//stage 1
 
 			if (rand() % 1000 <= 3 * difficulty + 1) {
 				createEnemy(Vulture, 1, rand() % 480, 8);
@@ -1602,15 +1602,15 @@ int main() {
 		}
 
 		if (score >= 12000 && score < 15000) {	//Boss3 - 2
-			if (score % 500 == 0)	blast = 1, blastx = rand() % 300 + 200, blasty = rand() % 240 + 120, sounds[0].isused=1;
-			if (score % 500 == 500-100*difficulty) {
+			if (score % 500 == 0)	blast = 1, blastx = rand() % 300 + 200, blasty = rand() % 240 + 120, sounds[0].isused = 1;
+			if (score % 500 == 500 - 100 * difficulty) {
 				blast = 0;
 				sounds[5].isused = 1;
 				if (Blast() == 1)	gameover = 1;
 			}
 
 			if (score < 12500) {
-				if (score % 40-5*difficulty == 0)	randomAttack();
+				if (score % 40 - 5 * difficulty == 0)	randomAttack();
 			}
 
 			if (score >= 12500 && score < 13000) {
@@ -1619,7 +1619,7 @@ int main() {
 			if (score >= 13000 && score < 13500) {
 				if (score % 30 - 5 * difficulty == 0)	randomAttack();
 			}
-			
+
 			if (score >= 13500 && score < 14000) {
 				if (score % 40 - 5 * difficulty == 0)	randomAttack();
 				if (score % 100 - 10 * difficulty == 0)	targetAttack();
@@ -1627,7 +1627,7 @@ int main() {
 			}
 			if (score >= 14000 && score < 15000) {
 				if (score % 110 - 17 * difficulty == 0)	randomAttack();
-				if (score % 230-7*difficulty == 0)	leftAttack(1), upAttack(1);
+				if (score % 230 - 7 * difficulty == 0)	leftAttack(1), upAttack(1);
 				if (score % 276 - 7 * difficulty == 0)	leftAttack(0), upAttack(0);
 				if (score % 97 - 8 * difficulty == 0)	alltargetAttack();
 			}
@@ -1643,7 +1643,7 @@ int main() {
 			if (score == 15000 || score == 16000)	createHomingBomb();
 			if (score % 7 == 0)	homing();
 			if (score % 150 - 10 * difficulty == 0)	homingAttack();
-			if (score % 73 - 5*difficulty == 0)	bombAttack();
+			if (score % 73 - 5 * difficulty == 0)	bombAttack();
 			if (score % 86 - difficulty * 5 == 0)	randomAttack();
 			if (score % 126 == 0)	alltargetAttack();
 		}
@@ -1661,13 +1661,12 @@ int main() {
 		}
 		//유닛 충돌 체크 및 게임 종료/재시작
 		for (int i = 0; i < unitnum; i++) {
-			if (collisionCheck(i) == 1 || gameover==1) {
+			if (collisionCheck(i) == 1 || gameover == 1) {
 				sounds[3].isused = 1;
-				for (int j = 222;j < 230;j++) {
+				for (int j = 222; j < 230; j++) {
 					for (int i = 0; i < unitnum; i++) {
 						Units[i].Death = j;
 					}
-					paintGroundUnits(img);
 					Sleep(100);
 				}
 				eraseScreen();
@@ -1681,7 +1680,7 @@ int main() {
 			}
 		}
 		if (score == 0)	continue;
-		 
+
 		LinearMove();	// 유닛 이동
 
 
